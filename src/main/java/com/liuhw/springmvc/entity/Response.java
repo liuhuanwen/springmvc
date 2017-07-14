@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class Response<T> {
 
     private int status;
-    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
     private T t;
     private String msg;
 

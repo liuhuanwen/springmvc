@@ -2,15 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.liuhw.springmvc.mapper.UserMapper">
 
+    <select id="findUserById" parameterType="java.lang.Long" resultType="User">
+        SELECT * FROM user WHERE id=#{id}
+    </select>
+
     <select id="findUserByName" parameterType="java.lang.String" resultType="User">
-        SELECT * FROM t_user WHERE name=#{value}
+        SELECT * FROM user WHERE name=#{value}
     </select>
 
     <insert id="addUser" parameterType="User">
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT INTO t_user (name,password)VALUES (#{name},#{password})
+        INSERT INTO user (name,password)VALUES (#{name},#{password})
     </insert>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE user SET password=#{password} WHERE id=#{id}
+    </update>
 
 </mapper>

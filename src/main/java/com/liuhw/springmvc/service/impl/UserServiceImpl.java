@@ -15,11 +15,19 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    public User findUserById(long id) {
+        return userMapper.findUserById(id);
+    }
+
     public User findUserByName(String name) {
         return userMapper.findUserByName(name);
     }
 
     public int addUser(User user) {
         return userMapper.addUser(user);
+    }
+
+    public void updateUser(User user) {
+        userMapper.updateUser(user);
     }
 }

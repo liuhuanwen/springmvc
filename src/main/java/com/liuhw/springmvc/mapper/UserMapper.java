@@ -8,7 +8,11 @@ import com.liuhw.springmvc.entity.User;
  */
 public interface UserMapper {
 
+    User findUserById(long id);
+
     User findUserByName(String name);
 
     int addUser(User user);
+
+    void updateUser(User user);
 }
